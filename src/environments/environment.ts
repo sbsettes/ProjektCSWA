@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseUrl: "https://collections.thulb.uni-jena.de/api/v1/",
+  user: 'restapi-read',
+  password: 'de2812328b3a6f875422b3876e02be37'
 };
 
 /*

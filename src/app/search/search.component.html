@@ -1,0 +1,48 @@
+<br><br>
+<div class="row">
+    <div class="col-8">
+        <form>
+            <div class="row">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="search" class="form-label">Search</label>
+                        <input type="text" class="form-control" id="search">
+                    </div>
+                </div>                
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label for="filter1" class="form-label">filter1</label>
+                    <input type="text" class="form-control" id="filter1">
+                </div>
+                <div class="col">
+                    <label for="filter2" class="form-label">filter2</label>
+                    <input type="text" class="form-control" id="filter2">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example">
+                        <option></option>
+                        <option value="1">Options</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example">
+                        <option></option>
+                        <option value="1">Options</option>
+                    </select>
+                </div>
+            </div>            
+        </form>
+    </div>
+</div>
+<br><br>
+<div class="row" *ngIf="results">
+    Results:
+    <div class="col" *ngFor="let result in results">
+        <span><h1>{{result.name}}</h1></span>
+    </div>
+</div>
