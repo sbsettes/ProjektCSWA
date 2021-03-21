@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiResponse } from '../models/apiResponse.model';
+import { Doc } from '../models/doc.model';
 
 @Component({
   selector: 'app-details',
@@ -8,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class DetailsComponent implements OnInit {
 
   constructor() { }
+
+  @Input()
+  card: any
 
   ngOnInit(): void {
   }

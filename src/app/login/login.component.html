@@ -1,6 +1,4 @@
-<br>
-<br>
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-8">
         <h1>Login to your Account</h1>
         <form (ngSubmit)="login()" [formGroup]="loginForm">
@@ -12,8 +10,12 @@
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" formControlName="password">
-            </div>            
-            <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            <div class="d-grid gap-2">
+              <button type="submit" class="btn btn-primary full-width">Login</button>
+            </div>             
+            <br>
+            <a href="/register">You don't have an Account, Create one !!!</a>
           </form>
     </div>
 </div>

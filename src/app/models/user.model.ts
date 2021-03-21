@@ -1,6 +1,9 @@
-export class User{
+export class User {
+    id: number;
+    email: string;
+    username: string;
+    password: string;
     firstName: string;
     lastName: string;
-    email: string;
-    password: string;
+    authdata?: string;
 }

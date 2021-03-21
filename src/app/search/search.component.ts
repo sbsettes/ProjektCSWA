@@ -1,5 +1,10 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from './search.serivce';
+import { FormBuilder } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { ApiResponse } from '../models/apiResponse.model';
+import { ApiRequesterService } from '../services/apiRequester.service';
 
 @Component({
   selector: 'app-search',
@@ -8,12 +13,35 @@ import { SearchService } from './search.serivce';
 })
 export class SearchComponent implements OnInit {
 
-  constructor(private searchService: SearchService) { }
+  constructor(
+    private apiRequester: ApiRequesterService,
+    private fb: FormBuilder
+  ) { }
 
-  private results = []
+  searchForm = this.fb.group({
+    keyword: [""],
+  }
+  )
+
+  results: ApiResponse[] = []
 
   ngOnInit(): void {
+    this.apiRequester.search("search?q=Ottstedt%20am%20Berge&wt=json").subscribe(
+      (res: HttpResponse<any[]>)=>{
+        this.results = res["response"]["docs"]
+        console.log("responses in componenent:" + JSON.stringify(res["response"]["docs"]))
+      }
+    )
+    
+  }
 
+  search(): void{
+    this.apiRequester.search("search?q=" + this.searchForm.get("keyword").value).subscribe(
+      (res: HttpResponse<ApiResponse[]>) => {
+        this.results = res.body
+      }
+    )
+    console.log("responses in componenent:" + this.results)
   }
 
 }

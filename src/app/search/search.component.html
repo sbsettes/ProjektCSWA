@@ -1,48 +1,107 @@
-<br><br>
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-8">
-        <form>
+        <form [formGroup]="searchForm" (ngSubmit)="search()">
+            <h1>Search for Field Names</h1>
             <div class="row">
                 <div class="col">
                     <div class="mb-3">
-                        <label for="search" class="form-label">Search</label>
-                        <input type="text" class="form-control" id="search">
+                        <label for="search" class="form-label">Keyword</label>
+                        <input type="text" class="form-control" id="search" formControlName="keyword">
                     </div>
-                </div>                
+                </div>
             </div>
-
             <div class="row">
                 <div class="col">
-                    <label for="filter1" class="form-label">filter1</label>
+                    <label for="filter1" class="form-label">SIGNATURE</label>
                     <input type="text" class="form-control" id="filter1">
                 </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <label for="filter2" class="form-label">filter2</label>
+                    <label for="filter2" class="form-label">PERSON</label>
                     <input type="text" class="form-control" id="filter2">
                 </div>
             </div>
-            
             <div class="row">
                 <div class="col">
+                    <label for="filter2" class="form-label">DATE</label>
+                    <input type="text" class="form-control" id="filter2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="filter2" class="form-label">PLACE</label>
+                    <input type="text" class="form-control" id="filter2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="filter2" class="form-label">DURATION</label>
                     <select class="form-select" aria-label="Default select example">
                         <option></option>
                         <option value="1">Options</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="filter2" class="form-label">DOCUMENT TYPE</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option></option>
+                        <option value="1">Options</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="filter2" class="form-label">GENUS</label>
+                    <select class="form-select" aria-label="Default select example">
+                        <option></option>
+                        <option value="1">Options</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row align-middle">
+                <div class="col align-middle">
+                    <label for="filter2" class="form-label align-middle">SORT BY</label>                    
+                </div>
+                <div class="col">
+                    <select class="form-select" aria-label="Default select example">
+                        <option></option>
+                        <option value="1" selected>Modification Date</option>
                     </select>
                 </div>
                 <div class="col">
                     <select class="form-select" aria-label="Default select example">
                         <option></option>
-                        <option value="1">Options</option>
+                        <option value="1" selected>descending</option>
                     </select>
                 </div>
-            </div>            
+                <div class="col d-grid gap-2">
+                    <button class="btn btn-success">Search</button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
 <br><br>
 <div class="row" *ngIf="results">
-    Results:
-    <div class="col" *ngFor="let result in results">
-        <span><h1>{{result.name}}</h1></span>
+    <br>
+    <div class="col" *ngFor="let result of results">
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="/assets/images/no_image.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{result.title}}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">ID: {{result.id}}</li>
+                <li class="list-group-item">Category: {{result.category}}</li>
+            </ul>
+            <div class="card-body">
+                <a href="#" class="card-link">Details</a>
+            </div>
+        </div>     
     </div>
+    <br>
 </div>

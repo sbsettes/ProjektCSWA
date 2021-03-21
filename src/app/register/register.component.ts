@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
     return user
   }
 
-  save(): void{
+  register(): void{
     
   }
 
